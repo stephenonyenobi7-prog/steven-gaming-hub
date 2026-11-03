@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STEPHEN GAMING HUB</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #080d19;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #111c32;
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #263b60;
+}
+
+.logo {
+  color: #00cfff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.menu-btn {
+  background: #1766d1;
+  color: white;
+  border: none;
+  padding: 11px 15px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+nav {
+  display: none;
+  background: #111c32;
+  padding: 15px;
+}
+
+nav.show {
+  display: block;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 13px;
+  border-bottom: 1px solid #263b60;
+}
+
+nav a:hover {
+  color: #00cfff;
+}
+
+main {
+  max-width: 850px;
+  margin: auto;
+
+display: flex;
+flex-direction: column;
+  padding: 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 65px 10px;
+}
+
+.hero h1 {
+  color: #00cfff;
+  font-size: 32px;
+}
+
+.hero p {
+  color: #aab7cc;
+  margin: 15px 0;
+}
+
+.section {
+  background: #111c32;
+  padding: 22px;
+  border-radius: 14px;
+  margin: 22px 0;
+  border: 1px solid #263b60;
+}
+
+.section h2 {
+  color: #00cfff;
+  margin-bottom: 18px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  margin: 9px 0;
+  background: #080d19;
+  border: 1px solid #34496d;
+  border-radius: 8px;
+  color: white;
+}
+
+.action {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg,#087cf0,#713bff);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.switch {
+  color: #00cfff;
+  cursor: pointer;
+  margin-top: 15px;
+  display: inline-block;
+}
+
+#signup {
+  display: none;
+}
+
+#login, #signup {
+  scroll-margin-top: 15px;
+}
+
+footer {
+  text-align: center;
+  color: #8493aa;
+  padding: 30px;
+}
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.game-card {
+  background: #172541;
+  border: 1px solid #30466d;
+  border-radius: 13px;
+  padding: 13px;
+  min-width: 0;
+}
+
+.game-icon {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.game-card h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.game-card p {
+  color: #aab7cc;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.game-card a {
+  display: block;
+  background: #1766d1;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 5px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+#gameCategory {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #080d19;
+  color: white;
+  border: 1px solid #34496d;
+}
+
+#gameCount {
+  margin-top: 15px;
+  color: #00cfff;
+}
+
+@media (max-width: 350px) {
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+.hero { order: 0; }
+#login { order: 1; }
+#signup { order: 2; }
+#games { order: 3; }
+#downloads { order: 4; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🎮 STEPHEN GAMING HUB</div>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<nav id="menu">
+  <a href="#home" onclick="toggleMenu()">🏠 Home</a>
+  <a href="#games" onclick="toggleMenu()">🎮 Games</a>
+  <a href="#login" onclick="showLogin()">🔐 Login</a>
+  <a href="#signup" onclick="showSignup()">📝 Sign Up</a>
+  <a href="#downloads" onclick="toggleMenu()">📥 Downloads</a>
+</nav>
+
+<main>
+
+<section class="hero" id="home">
+  <h1>WELCOME TO STEPHEN GAMING HUB</h1>
+  <p>Discover and download amazing Android games!</p>
+</section>
+
+<section class="section" id="games">
+  <h2>🎮 Android Game Library</h2>
+  <p>Explore our collection of 60 Android games.</p>
+
+  <input
+    type="text"
+    id="gameSearch"
+    placeholder="🔍 Search for a game..."
+    oninput="displayGames()"
+  >
+
+  <select id="gameCategory" onchange="displayGames()">
+    <option value="All">All Categories</option>
+    <option value="Action">Action</option>
+    <option value="Racing">Racing</option>
+    <option value="Sports">Sports</option>
+    <option value="Adventure">Adventure</option>
+    <option value="Casual">Casual</option>
+    <option value="Strategy">Strategy</option>
+  </select>
+
+  <p id="gameCount"></p>
+  <div id="gameList" class="game-grid"></div>
+</section>
+
+
+<section class="section" id="downloads">
+  <h2>📥 Game Downloads</h2>
+  <p>Our Android game collection will appear here.</p>
+</section>
+
+</main>
+
+<footer>
+  © 2026 STEPHEN GAMING HUB
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("show");
+}
+
+function showSignup() {
+  document.getElementById("login").style.display = "none";
+  document.getElementById("signup").style.display = "block";
+}
+
+function showLogin() {
+  document.getElementById("signup").style.display = "none";
+  document.getElementById("login").style.display = "block";
+}
+
+function loginUser(event) {
+  event.preventDefault();
+  alert("Login system will be connected next!");
+}
+
+function registerUser(event) {
+  event.preventDefault();
+  alert("Registration system will be connected next!");
+}
+const games = [
+["Free Fire","Action","🔥"],
+["PUBG MOBILE","Action","🎯"],
+["Call of Duty Mobile","Action","💥"],
+["Roblox","Adventure","🧱"],
+["Minecraft","Adventure","⛏️"],
+["Asphalt Legends","Racing","🏎️"],
+["Asphalt 8","Racing","🚘"],
+["Real Racing 3","Racing","🏁"],
+["Hill Climb Racing 2","Racing","🚙"],
+["Subway Surfers","Casual","🚆"],
+["Temple Run 2","Adventure","🏃"],
+["Stumble Guys","Casual","🤸"],
+["Among Us","Casual","👨‍🚀"],
+["Brawl Stars","Action","⭐"],
+["Clash of Clans","Strategy","⚔️"],
+["Clash Royale","Strategy","👑"],
+["Mobile Legends","Action","🛡️"],
+["EA SPORTS FC Mobile","Sports","⚽"],
+["eFootball","Sports","⚽"],
+["Dream League Soccer","Sports","🏆"],
+["8 Ball Pool","Sports","🎱"],
+["CarX Street","Racing","🚗"],
+["Need for Speed No Limits","Racing","🏎️"],
+["Traffic Rider","Racing","🏍️"],
+["Bus Simulator Ultimate","Racing","🚌"],
+["Truckers of Europe 3","Racing","🚛"],
+["Shadow Fight 3","Action","🥷"],
+["Mortal Kombat","Action","🐉"],
+["Injustice 2","Action","🦸"],
+["Dragon Ball Legends","Action","🐲"],
+["Pokémon GO","Adventure","⚡"],
+["Pokémon Unite","Strategy","🔴"],
+["Genshin Impact","Adventure","🌌"],
+["Honkai: Star Rail","Adventure","🚀"],
+["Wuthering Waves","Adventure","🌊"],
+["Sky: Children of the Light","Adventure","✨"],
+["Terraria","Adventure","🌳"],
+["Stardew Valley","Adventure","🌻"],
+["Plants vs Zombies 2","Strategy","🌻"],
+["Candy Crush Saga","Casual","🍬"],
+["Royal Match","Casual","👑"],
+["Angry Birds 2","Casual","🐦"],
+["Geometry Dash Lite","Casual","🔷"],
+["Dead Trigger 2","Action","🧟"],
+["Into the Dead 2","Action","🧟"],
+["Cover Fire","Action","🎯"],
+["Modern Combat 5","Action","💣"],
+["World War Heroes","Action","🎖️"],
+["Sniper 3D","Action","🎯"],
+["Shadowgun Legends","Action","👾"],
+["CSR Racing 2","Racing","🏎️"],
+["Top Drives","Racing","🚘"],
+["Farming Simulator 23","Adventure","🚜"],
+["Goat Simulator","Casual","🐐"],
+["Marvel Contest of Champions","Action","🦸"],
+["Pokémon TCG Pocket","Strategy","🃏"],
+["Jetpack Joyride","Casual","🚀"],
+["Fruit Ninja","Casual","🍉"],
+["BADLAND","Adventure","🌑"],
+["Beach Buggy Racing 2","Racing","🏖️"]
+];
+
+function displayGames() {
+  const search = document.getElementById("gameSearch")
+    .value.toLowerCase();
+
+  const category = document.getElementById("gameCategory").value;
+
+  const results = games.filter(game =>
+    game[0].toLowerCase().includes(search) &&
+    (category === "All" || game[1] === category)
+  );
+
+  document.getElementById("gameCount").textContent =
+    results.length + " games found";
+
+  document.getElementById("gameList").innerHTML =
+    results.map(game => `
+      <div class="game-card">
+        <div class="game-icon">${game[2]}</div>
+        <h3>${game[0]}</h3>
+        <p>${game[1]} Game · Android</p>
+        <a href="https://play.google.com/store/search?q=${encodeURIComponent(game[0])}&c=apps"
+           target="_blank" rel="noopener">
+          GET GAME 📥
+        </a>
+      </div>
+    `).join("");
+}
+
+displayGames();
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up - Stephen Gaming Hub</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #080d19;
+  color: white;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.signup-box {
+  width: 100%;
+  max-width: 420px;
+  background: #111c32;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid #29436d;
+  text-align: center;
+}
+
+.logo {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  color: #00cfff;
+  font-size: 25px;
+}
+
+p {
+  color: #aab7cc;
+  margin: 12px 0 20px;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 9px 0;
+  border-radius: 9px;
+  border: 1px solid #34496d;
+  background: #080d19;
+  color: white;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 15px;
+  background: linear-gradient(90deg,#087cf0,#713bff);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-weight: bold;
+}
+
+a {
+  color: #00cfff;
+  text-decoration: none;
+}
+
+.links {
+  margin-top: 22px;
+  line-height: 2;
+}
+</style>
+</head>
+
+<body>
+
+<div class="signup-box">
+
+  <div class="logo">🎮</div>
+
+  <h1>CREATE ACCOUNT</h1>
+
+  <p>Join Stephen Gaming Hub today!</p>
+
+  <form onsubmit="register(event)">
+
+    <input type="text"
+    placeholder="Full name" required>
+
+    <input type="email"
+    placeholder="Email address" required>
+
+    <input type="password"
+    placeholder="Create password"
+    minlength="8" required>
+
+    <input type="password"
+    placeholder="Confirm password"
+    minlength="8" required>
+
+    <button type="submit">CREATE ACCOUNT</button>
+
+  </form>
+
+  <div class="links">
+    Already have an account?
+    <a href="login.html">Login</a>
+    <br>
+    <a href="index.html">Back to Home</a>
+  </div>
+
+</div>
+
+<script>
+function register(event) {
+  event.preventDefault();
+
+  const passwords = document.querySelectorAll(
+    'input[type="password"]'
+  );
+
+  if (passwords[0].value !== passwords[1].value) {
+    alert("Passwords do not match!");
+    return;
+  }
+alert("Registration successful! Please login.");
+window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

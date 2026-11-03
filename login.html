@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Stephen Gaming Hub</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #080d19;
+  color: white;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  background: #111c32;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid #29436d;
+  text-align: center;
+}
+
+.logo {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  color: #00cfff;
+  font-size: 25px;
+}
+
+p {
+  color: #aab7cc;
+  margin: 12px 0 25px;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 9px;
+  border: 1px solid #34496d;
+  background: #080d19;
+  color: white;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 15px;
+  background: linear-gradient(90deg,#087cf0,#713bff);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+a {
+  color: #00cfff;
+  text-decoration: none;
+}
+
+.links {
+  margin-top: 22px;
+  line-height: 2;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+  <div class="logo">🎮</div>
+
+  <h1>STEPHEN GAMING HUB</h1>
+
+  <p>Welcome back, gamer! Login to continue.</p>
+
+  <form onsubmit="login(event)">
+    <input type="email" placeholder="Email address" required>
+
+    <input type="password" placeholder="Password" required>
+
+    <button type="submit">LOGIN</button>
+  </form>
+
+  <div class="links">
+    Don't have an account?
+    <a href="signup.html">Sign Up</a>
+    <br>
+    <a href="index.html">Back to Home</a>
+  </div>
+
+</div>
+
+<script>
+function login(event) {
+  event.preventDefault();
+
+  alert("Welcome to STEPHEN GAMING HUB!");
+
+  window.location.href = "home.html";
+}
+</script>
+
+</body>
+</html>
+
